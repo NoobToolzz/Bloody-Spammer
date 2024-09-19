@@ -90,8 +90,8 @@ def proxies_random():
 	proxy = random.choice(proxies_list)
 
 	proxies = {
-		"http": f"{proxy}",
-		"https": f"{proxy}"
+		"http": proxy,
+		"https": proxy
 	}
 	
 	return proxies
