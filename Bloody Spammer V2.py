@@ -82,7 +82,7 @@ def proxies_scraper():
 	global proxies_list
 
 	while True:
-		response = requests.get("https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks4&timeout=10000&country=all&simplified=true")
+		response = requests.get("https://api.proxyscrape.com/v4/free-proxy-list/get?request=get_proxies&proxy_format=protocolipport&format=text")
 		proxies_list = response.text.splitlines()
 		# return proxies_scraper() -- You can use this if you want to, it just loop scrapes proxies.
 
@@ -90,8 +90,8 @@ def proxies_random():
 	proxy = random.choice(proxies_list)
 
 	proxies = {
-		"http": f"socks4://{proxy}",
-		"https": f"socks4://{proxy}"
+		"http": f"{proxy}",
+		"https": f"{proxy}"
 	}
 	
 	return proxies
